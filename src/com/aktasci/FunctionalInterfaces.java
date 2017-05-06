@@ -25,6 +25,9 @@ public class FunctionalInterfaces {
 
         List<Integer> numberList = TestObjectFactory.getNumberList();
 
+        System.out.println("All numbers");
+        numberList.forEach(n -> System.out.println("number =" + n));
+
         System.out.println("even numbers:");
         //print even numbers
         printNumbers(numberList, n -> n % 2 == 0);
