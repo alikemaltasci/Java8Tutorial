@@ -14,7 +14,6 @@ buildNumber.properties
 !/.mvn/wrapper/maven-wrapper.jar
 ### Java template
 # Compiled class file
-*.class
 
 # Log file
 *.log
@@ -40,4 +39,3 @@ hs_err_pid*
 *.iml
 .gitignore
 out/
-src/
