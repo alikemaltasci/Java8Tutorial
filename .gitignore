@@ -38,3 +38,6 @@ hs_err_pid*
 
 .idea/
 *.iml
+.gitignore
+out/
+src/
