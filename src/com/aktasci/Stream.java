@@ -72,5 +72,8 @@ public class Stream {
         String joinedWithDelimeter = nameList.stream().collect(Collectors.joining("#"));
         System.out.println("joinedWithDelimeter = " + joinedWithDelimeter);
 
+        //statistics
+        IntSummaryStatistics summaryStatistics = numberList.stream().mapToInt(x -> x).summaryStatistics();
+        System.out.println("summaryStatistics = " + summaryStatistics);
     }
 }
