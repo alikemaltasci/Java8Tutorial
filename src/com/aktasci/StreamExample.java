@@ -11,7 +11,7 @@ import java.util.Random;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class Stream {
+public class StreamExample {
 
     public static void main(String[] args) {
 
