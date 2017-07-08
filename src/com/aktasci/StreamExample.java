@@ -1,14 +1,10 @@
 package com.aktasci;
 
-import java.security.cert.CollectionCertStoreParameters;
-import java.time.Duration;
-import java.time.Instant;
 import java.util.Comparator;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class StreamExample {
@@ -36,6 +32,21 @@ public class StreamExample {
 
         System.out.println("name list mapped with uppercase:");
         nameList.stream().map(String::toUpperCase).collect(Collectors.toList()).forEach(System.out::println);
+
+        //flatMap
+        List<List<String>> listOfParticipants = TestObjectFactory.getListOfParticipants();
+        System.out.println("listOfParticipants = " + listOfParticipants);
+        System.out.println("list of groups that has 3 participants");
+        listOfParticipants.stream().filter(list -> list.size() == 3).collect(Collectors.toList())
+                .forEach(System.out::println);
+        System.out.println("listOfParticipants with stream and flatMap");
+        listOfParticipants.stream().flatMap(List::stream)
+                .collect(Collectors.toList()).forEach(System.out::println);
+
+        System.out.println("List of participants with name that has 3 characters");
+        listOfParticipants.stream().flatMap(List::stream).filter(name -> name.length() == 3)
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
 
         //filter
         System.out.println("list of names that has three chars");

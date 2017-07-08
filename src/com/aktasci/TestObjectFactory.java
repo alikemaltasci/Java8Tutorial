@@ -1,10 +1,13 @@
 package com.aktasci;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class TestObjectFactory {
-    public static List<String> getNameList() {
+class TestObjectFactory {
+    static List<String> getNameList() {
         List<String> names = new ArrayList<>();
         names.add("Ali");
         names.add("Osman");
@@ -14,7 +17,7 @@ public class TestObjectFactory {
         return names;
     }
 
-    public static List<Integer> getNumberList() {
+    static List<Integer> getNumberList() {
         List<Integer> numbers = new ArrayList<>();
         numbers.add(2);
         numbers.add(5);
@@ -22,5 +25,13 @@ public class TestObjectFactory {
         numbers.add(9);
         numbers.add(1);
         return numbers;
+    }
+
+    static List<List<String>> getListOfParticipants() {
+        List<List<String>> listOfParticipants = new ArrayList<>();
+        listOfParticipants.add(Arrays.asList("Ali", "Osman"));
+        listOfParticipants.add(Arrays.asList("Kerem", "Omer", "Hamza"));
+        listOfParticipants.add(Arrays.asList("Ramiz", "Salih", "Huseyin"));
+        return listOfParticipants;
     }
 }
