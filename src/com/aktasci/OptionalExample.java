@@ -21,7 +21,7 @@ public class OptionalExample {
         System.out.println("value1Opt = " + value1Opt);
         System.out.println("value2Opt = " + value2Opt);
 
-        System.out.println(opt.sum(value1Opt, value2Opt));
+        System.out.println("sum is " + opt.sum(value1Opt, value2Opt));
 
         //orElse and orElseGet
         String temp = null;
@@ -70,6 +70,9 @@ public class OptionalExample {
 
         //checks the value is present(true) or not(false)
         System.out.println("value1Opt = [" + value1Opt.isPresent() + "], value2Opt = [" + value2Opt.isPresent() + "]");
+
+        value1Opt.ifPresent(System.out::println);
+        value2Opt.ifPresent(System.out::println);
 
         //if value1Opt is present returns its value, else returns default value passed
         Integer value1 = value1Opt.orElse(0);
