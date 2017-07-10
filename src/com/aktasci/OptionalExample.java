@@ -42,6 +42,8 @@ public class OptionalExample {
         //getDefaultValue() is not called
         System.out.println(Optional.ofNullable(temp).orElseGet(() -> opt.getDefaultValue()));
 
+        System.out.println("result of division " + opt.divide(Optional.of(5), Optional.of(1)));
+        System.out.println("result of division " + opt.divide(Optional.of(5), Optional.of(null)));
     }
 
     private Integer sum(Optional<Integer> value1Opt, Optional<Integer> value2Opt) {
@@ -61,5 +63,8 @@ public class OptionalExample {
         return "Default Value";
     }
 
+    private Integer divide(Optional<Integer> first, Optional<Integer> second) {
+        return first.orElseThrow(IllegalArgumentException::new) / second.orElseThrow(IllegalArgumentException::new);
+    }
 
 }
