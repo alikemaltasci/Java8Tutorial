@@ -34,6 +34,11 @@ public class StreamExample {
         System.out.println("name list mapped with uppercase:");
         nameList.stream().map(String::toUpperCase).collect(Collectors.toList()).forEach(System.out::println);
 
+        int factor = 2;
+        System.out.println("numbers multiplied with a variable outside of lambda expression(it is not alllowed to "
+                + "change the variable inside the lambda expression, tough)");
+        numberList.stream().map(number -> number * factor).collect(Collectors.toList()).forEach(System.out::println);
+
         //flatMap
         List<List<String>> listOfParticipants = TestObjectFactory.getListOfParticipants();
         System.out.println("listOfParticipants = " + listOfParticipants);
