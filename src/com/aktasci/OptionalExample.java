@@ -23,6 +23,7 @@ public class OptionalExample {
 
         System.out.println(opt.sum(value1Opt, value2Opt));
 
+        //orElse and orElseGet
         String temp = null;
         System.out.println("temp is null");
         System.out.println("calling orElse");
@@ -42,8 +43,27 @@ public class OptionalExample {
         //getDefaultValue() is not called
         System.out.println(Optional.ofNullable(temp).orElseGet(() -> opt.getDefaultValue()));
 
+        //filter
+        temp = "Osman";
+        System.out.println("Is name " + temp + " has 5 characters="
+                + Optional.of(temp).filter(name -> name.length() == 5).isPresent());
+        System.out.println("Is name " + temp + " has 3 characters="
+                + Optional.of(temp).filter(name -> name.length() == 3).isPresent());
+
+        //map
+        System.out.println("mapped value of " + temp);
+        System.out.println(Optional.of(temp).map(String::toUpperCase).get());
+        System.out.println("the original value doesn't change: " + temp);
+
+        //flatMap
+        Optional<Optional<String>> temp1 = Optional.of(Optional.of(temp));
+        System.out.println("tempString with map = " + temp1.map(Optional::get).get());
+        System.out.println("tempString with flatMap= " + temp1.flatMap(name -> name).get());
+
+        //orElseThrow
         System.out.println("result of division " + opt.divide(Optional.of(5), Optional.of(1)));
         System.out.println("result of division " + opt.divide(Optional.of(5), Optional.of(null)));
+
     }
 
     private Integer sum(Optional<Integer> value1Opt, Optional<Integer> value2Opt) {
