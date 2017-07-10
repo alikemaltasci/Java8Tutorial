@@ -1,26 +1,43 @@
 package com.aktasci;
 
+import java.time.DayOfWeek;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
+import java.time.Period;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.chrono.ChronoPeriod;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAdjuster;
+import java.time.temporal.TemporalAdjusters;
 import java.time.temporal.TemporalAmount;
 
 public class DateTimeExample {
 
     public static void main(String[] args) {
 
-        testLocal();
-        testZoned();
-        testChronoUnits();
+        DateTimeExample dtEx = new DateTimeExample();
+
+        dtEx.testLocal();
+        dtEx.testZoned();
+        dtEx.testChronoUnits();
+        dtEx.testPeriodAndDuration();
+        dtEx.testTemporalAdjuster();
     }
 
-    private static void testChronoUnits() {
+    private void testTemporalAdjuster() {
+        System.out.println("Testing temporal adjuster");
+        LocalDate localDate = LocalDate.now();
+        System.out.println("localDate = " + localDate);
+        LocalDate nextTuesday = localDate.with(TemporalAdjusters.next(DayOfWeek.TUESDAY));
+        System.out.println("nextTuesday = " + nextTuesday);
+    }
+
+    private void testChronoUnits() {
         //Chrono Units Enum
         System.out.println("Testing Chrono");
         LocalDate localDate = LocalDate.now();
@@ -42,7 +59,27 @@ public class DateTimeExample {
         System.out.println("nextMillenia = " + nextMillenia);
     }
 
-    private static void testZoned() {
+    private void testPeriodAndDuration() {
+
+        System.out.println("Testing Period and Duration");
+        //Period − It deals with date based amount of time.
+        LocalDate localDate1 = LocalDate.now();
+        LocalDate localDate2 = localDate1.plus(1, ChronoUnit.MONTHS);
+        Period period = Period.between(localDate1, localDate2);
+        System.out.println("period = " + period);
+        long totalMonths = period.toTotalMonths();
+        System.out.println("totalMonths = " + totalMonths);
+
+        //Duration −It deals with time based amount of time.
+        LocalTime localTime = LocalTime.now();
+        LocalTime localTime1 = localTime.plus(5, ChronoUnit.HOURS);
+        Duration duration = Duration.between(localTime, localTime1);
+        System.out.println("duration = " + duration);
+        long hours = duration.toHours();
+        System.out.println("hours = " + hours);
+    }
+
+    private void testZoned() {
 
         System.out.println("Testing Zoned");
         //Zoned Date-Time API is used when time zone is to be consiedered
@@ -59,7 +96,7 @@ public class DateTimeExample {
         System.out.println("zoneId1 = " + zoneId1);
     }
 
-    private static void testLocal() {
+    private void testLocal() {
 
         System.out.println("Testing Local");
         //Local Date-Time API has no complexity of timezone handling
