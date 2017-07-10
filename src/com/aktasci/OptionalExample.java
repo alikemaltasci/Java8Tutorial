@@ -22,6 +22,26 @@ public class OptionalExample {
         System.out.println("value2Opt = " + value2Opt);
 
         System.out.println(opt.sum(value1Opt, value2Opt));
+
+        String temp = null;
+        System.out.println("temp is null");
+        System.out.println("calling orElse");
+        //getDefaultValue() is called
+        System.out.println(Optional.ofNullable(temp).orElse(opt.getDefaultValue()));
+        System.out.println("calling orElseGet");
+        //getDefaultValue() is called
+        System.out.println(Optional.ofNullable(temp).orElseGet(() -> opt.getDefaultValue()));
+
+        temp = "Not Empty";
+        System.out.println("temp is not null");
+        System.out.println("calling orElse");
+        //getDefaultValue() is called but not set to the value. So make an unnecessary call and create unnecessary
+        // objects
+        System.out.println(Optional.ofNullable(temp).orElse(opt.getDefaultValue()));
+        System.out.println("calling orElseGet");
+        //getDefaultValue() is not called
+        System.out.println(Optional.ofNullable(temp).orElseGet(() -> opt.getDefaultValue()));
+
     }
 
     private Integer sum(Optional<Integer> value1Opt, Optional<Integer> value2Opt) {
@@ -34,6 +54,11 @@ public class OptionalExample {
         Integer value2 = value2Opt.get();
 
         return value1 + value2;
+    }
+
+    public String getDefaultValue() {
+        System.out.println("Getting default value");
+        return "Default Value";
     }
 
 
