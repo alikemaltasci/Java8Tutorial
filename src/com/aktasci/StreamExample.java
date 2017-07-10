@@ -49,6 +49,10 @@ public class StreamExample {
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
 
+        //reduce
+        Integer totalNumbers = numberList.stream().reduce((sum, number) -> sum + number).get();
+        System.out.println("totalNumbers = " + totalNumbers);
+
         //filter
         System.out.println("list of names that are three characters long");
         nameList.stream().filter(name -> name.length() == 3).forEach(System.out::println);
