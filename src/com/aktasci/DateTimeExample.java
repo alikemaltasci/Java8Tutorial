@@ -2,6 +2,7 @@ package com.aktasci;
 
 import java.time.DayOfWeek;
 import java.time.Duration;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -15,6 +16,7 @@ import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 import java.time.temporal.TemporalAmount;
+import java.util.Date;
 
 public class DateTimeExample {
 
@@ -27,6 +29,23 @@ public class DateTimeExample {
         dtEx.testChronoUnits();
         dtEx.testPeriodAndDuration();
         dtEx.testTemporalAdjuster();
+        dtEx.testTonInstant();
+    }
+
+    private void testTonInstant() {
+
+        System.out.println("Testing toInstant");
+        Date currentData = new Date();
+        System.out.println("currentData = " + currentData);
+
+        Instant instant = currentData.toInstant();
+        ZoneId zoneId = ZoneId.systemDefault();
+
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zoneId);
+        System.out.println("localDateTime = " + localDateTime);
+
+        ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant, zoneId);
+        System.out.println("zonedDateTime = " + zonedDateTime);
     }
 
     private void testTemporalAdjuster() {
