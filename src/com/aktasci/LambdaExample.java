@@ -1,10 +1,10 @@
 package com.aktasci;
 
-public class Lamda {
+public class LambdaExample {
 
     public static void main(String[] args) {
 
-        Lamda examples = new Lamda();
+        LambdaExample examples = new LambdaExample();
 
         //with type declaration
         ArithmeticOperation addition = (int a, int b) -> a + b;

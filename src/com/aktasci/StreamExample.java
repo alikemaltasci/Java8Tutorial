@@ -5,6 +5,7 @@ import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class StreamExample {
@@ -43,14 +44,20 @@ public class StreamExample {
         listOfParticipants.stream().flatMap(List::stream)
                 .collect(Collectors.toList()).forEach(System.out::println);
 
-        System.out.println("List of participants with name that has 3 characters");
+        System.out.println("List of participants with name that are three characters long");
         listOfParticipants.stream().flatMap(List::stream).filter(name -> name.length() == 3)
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
 
         //filter
-        System.out.println("list of names that has three chars");
+        System.out.println("list of names that are three characters long");
         nameList.stream().filter(name -> name.length() == 3).forEach(System.out::println);
+
+        Predicate<String> predHasThreeChars = (name) -> name.length() == 3;
+        Predicate<String> predStartsWithA = (name) -> name.startsWith("A");
+        System.out.println("Names that are 3 characters long or start with character 'A' ");
+        nameList.stream().filter(predHasThreeChars.or(predStartsWithA)).collect(Collectors.toList())
+                .forEach(System.out::println);
 
         //limit
         System.out.println("first 2 names:");
