@@ -16,3 +16,4 @@ A method reference can be used to point the following types of methods:
 Sources:
 * http://www.tutorialspoint.com/java8/index.htm
 * http://www.baeldung.com/java-optional
+* https://blog.jetbrains.com/idea/2016/07/java-8-top-tips/
