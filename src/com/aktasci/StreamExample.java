@@ -44,15 +44,15 @@ public class StreamExample {
         System.out.println("listOfParticipants = " + listOfParticipants);
         System.out.println("list of groups that has 3 participants");
         listOfParticipants.stream().filter(list -> list.size() == 3).collect(Collectors.toList())
-                .forEach(System.out::println);
+                          .forEach(System.out::println);
         System.out.println("listOfParticipants with stream and flatMap");
         listOfParticipants.stream().flatMap(List::stream)
-                .collect(Collectors.toList()).forEach(System.out::println);
+                          .collect(Collectors.toList()).forEach(System.out::println);
 
         System.out.println("List of participants with name that are three characters long");
         listOfParticipants.stream().flatMap(List::stream).filter(name -> name.length() == 3)
-                .collect(Collectors.toList())
-                .forEach(System.out::println);
+                          .collect(Collectors.toList())
+                          .forEach(System.out::println);
 
         //reduce
         Integer totalNumbers = numberList.stream().reduce((sum, number) -> sum + number).get();
@@ -77,8 +77,8 @@ public class StreamExample {
         numberList.stream().sorted().collect(Collectors.toList()).forEach(System.out::println);
         System.out.println("number list sorted as descending: ");
         numberList.stream()
-                .sorted(Comparator.reverseOrder()).collect(Collectors.toList())
-                .forEach(System.out::println);
+                  .sorted(Comparator.reverseOrder()).collect(Collectors.toList())
+                  .forEach(System.out::println);
 
         System.out.println("name list sorted as ascending(default):");
         nameList.stream().sorted().collect(Collectors.toList()).forEach(System.out::println);
@@ -90,7 +90,7 @@ public class StreamExample {
 
         //collector
         Map<String, Integer> nameNumberMap = nameList.stream()
-                .collect(Collectors.toMap(name -> name, String::length));
+                                                     .collect(Collectors.toMap(name -> name, String::length));
         System.out.println("nameNumberMap = " + nameNumberMap);
 
         String joined = nameList.stream().collect(Collectors.joining());
