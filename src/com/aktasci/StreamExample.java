@@ -36,7 +36,7 @@ public class StreamExample {
 
         int factor = 2;
         System.out.println("numbers multiplied with a variable outside of lambda expression(it is not alllowed to "
-                + "change the variable inside the lambda expression, tough)");
+                + "change the variable inside the lambda expression, though)");
         numberList.stream().map(number -> number * factor).collect(Collectors.toList()).forEach(System.out::println);
 
         //flatMap
