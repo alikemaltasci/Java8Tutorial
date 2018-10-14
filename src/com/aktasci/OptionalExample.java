@@ -14,7 +14,7 @@ public class OptionalExample {
         //allows passed parameter to be null
         Optional<Integer> value1Opt = Optional.ofNullable(value1);
 
-        //throws NPE if the passes parameter is null
+        //throws NPE if the passed parameter is null
         Optional<Integer> value2Opt = Optional.of(value2);
 
         System.out.println("value1Opt = " + value1Opt);
