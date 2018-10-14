@@ -1,6 +1,7 @@
 package com.aktasci;
 
 public class DefaultMethodInterfaceImpl implements DefaultMethodInterface {
+
     public static void main(String[] args) {
         DefaultMethodInterface dmi = new DefaultMethodInterfaceImpl();
         dmi.sayHello("Ali");

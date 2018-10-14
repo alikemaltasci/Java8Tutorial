@@ -10,12 +10,9 @@ import java.time.Month;
 import java.time.Period;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.time.chrono.ChronoPeriod;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
-import java.time.temporal.TemporalAmount;
 import java.util.Date;
 
 public class DateTimeExample {

@@ -2,11 +2,10 @@ package com.aktasci;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 class TestObjectFactory {
+
     static List<String> getNameList() {
         List<String> names = new ArrayList<>();
         names.add("Ali");

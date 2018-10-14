@@ -11,7 +11,6 @@ public class OptionalExample {
         Integer value1 = null;
         Integer value2 = new Integer(5);
 
-
         //allows passed parameter to be null
         Optional<Integer> value1Opt = Optional.ofNullable(value1);
 
