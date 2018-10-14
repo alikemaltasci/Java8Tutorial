@@ -10,20 +10,21 @@ public class MethodReference {
         List<String> nameList = TestObjectFactory.getNameList();
         List<Integer> numberList = TestObjectFactory.getNumberList();
 
-        //calling instance method
+        System.out.println("calling instance method");
         nameList.forEach(methodReference::sayHello);
         numberList.forEach(methodReference::sayHello);
 
-        //with lambda
-        nameList.forEach(s -> System.out.println("lamda: Hello " + s));
+        System.out.println("with lambda");
+        nameList.forEach(s -> System.out.println("Lambda String: Hello " + s));
+        numberList.forEach(s -> System.out.println("Lambda Integer: Hello " + s));
 
-        //with function
+        System.out.println("with function");
         GreetingService helloService = s -> System.out.println("function: Hello " + s);
         nameList.forEach(helloService::sayHello);
         helloService = s -> System.out.println("function 2 Hello:" + s);
         nameList.forEach(helloService::sayHello);
 
-        //calling static method
+        System.out.println("calling static method");
         nameList.forEach(MethodReference::staticSayGoodBye);
 
         nameList.forEach(System.out::println);
