@@ -6,7 +6,15 @@ public class LambdaExample {
 
         LambdaExample examples = new LambdaExample();
 
-        //with type declaration
+        // old style(before Java 8): Anonymous class
+        ArithmeticOperation additionInOldStyle = new ArithmeticOperation() {
+            @Override
+            public int operate(int operand1, int operand2) {
+                return operand1 + operand2;
+            }
+        };
+
+        // new style with type declaration
         ArithmeticOperation addition = (int a, int b) -> a + b;
 
         //without type declaration
@@ -20,6 +28,8 @@ public class LambdaExample {
         //without return statement and without curly braces
         ArithmeticOperation division = (a, b) -> a / b;
 
+        System.out
+                .println("examples.operate(1, 3, additionInOldStyle) = " + examples.operate(1, 3, additionInOldStyle));
         System.out.println("add(1,2)=" + examples.operate(1, 2, addition));
         System.out.println("subtract(2,1)=" + examples.operate(2, 1, subtraction));
         System.out.println("multiply(3,2)=" + examples.operate(3, 2, multiplication));
