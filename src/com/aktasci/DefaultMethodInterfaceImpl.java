@@ -8,7 +8,7 @@ public class DefaultMethodInterfaceImpl implements DefaultMethodInterface {
         DefaultMethodInterface.sayGoodBye("Ali");
     }
 
-    //if there is no implementatiton of this method, then the default sayHelloMethod is called
+    //if there is no implementation of this method, then the default sayHelloMethod is called
     public void sayHello(String name) {
         DefaultMethodInterface.super.sayHello(name);
         System.out.println("Implementation Hello " + name);
